@@ -4,8 +4,7 @@ Util::verificarLogin();
 //var_dump($_SESSION);
 //exit;
 ?>
-  
-    <br>
-    <a href="../ContatoList.php"> Contato </a>
 
-<?php include "./rodape.php" ?>
+<br>
+<a href="../ContatoList.php"> Contato </a>
+<a href="../pedidoList.php">Pedido</a>
