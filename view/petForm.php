@@ -70,7 +70,7 @@ if(!empty($_SESSION['msg'])) {
 
         <button type="submit" class='btn btn-success'>
             <?php echo (empty($_GET['id']) ? "Salvar" : "Atualizar") ?>
-        </button> <a href="pedidoList.php" class="btn btn-danger">Voltar</a>
+        </button> <a href="petList.php" class="btn btn-danger">Voltar</a>
     </form>
 </div>
 <?php
