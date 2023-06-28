@@ -59,12 +59,6 @@ if(!empty($_SESSION['msg'])) {
             </div>
 
         </div>
-
-
-
-
-
-
         <button type="submit" class='btn btn-success'>
             <?php echo (empty($_GET['id']) ? "Salvar" : "Atualizar") ?>
         </button> <a href="pedidoList.php" class="btn btn-danger">Voltar</a>
