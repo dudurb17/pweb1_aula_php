@@ -27,41 +27,53 @@ if(!empty($_SESSION['msg'])) {
 }
 */
 ?>
-<h3>Listagem Contatos</h3>
-<p style="color:red;">
-    <?php echo (!empty($_SESSION["msg"]) ? $_SESSION["msg"] : "") ?>
-</p>
-<form action="pedidoList.php" method="post">
-    <select name="campo">
-        <option value="nome">Nome</option>
-        <option value="quantidade">quantidade</option>
-        <option value="valor">valor</option>
-    </select>
-    <label>Valor</label>
-    <input type="text" name="valor" placeholder="Pesquisar" />
-    <button type="submit">Buscar</button>
-    <a href="pedidoForm.php">Cadastrar</a><br><br>
-</form>
+<div class="container">
+    <h3>Listagem Pedidos</h3>
+    <p style="color:red;">
+        <?php echo (!empty($_SESSION["msg"]) ? $_SESSION["msg"] : "") ?>
+    </p>
+    <div class="container text-center">
+        <div class="row row-cols-auto">
+            <div class="col">
+                <form action="pedidoList.php" method="post">
+                    <select name="campo" class='form-select'>
+                        <option value="nome">Nome</option>
+                        <option value="quantidade">quantidade</option>
+                        <option value="valor">valor</option>
+                    </select>
+            </div>
+            <div class="col"><input type="text" name="valor" placeholder="Pesquisar" class="form-control" /></div>
+            <div class="col"><button type="submit" class="btn btn-outline-success">Buscar</button></div>
+            <div class="col"><a href="pedidoForm.php" class="btn btn-primary"><i class="fas fa-plus"></i>
+                    Cadastrar</a></div>
+        </div>
+    </div>
 
-<table border="1">
-    <tr>
-        <th>Nome</th>
-        <th>Quantidade</th>
-        <th>valor</th>
-        <th></th>
-        <th></th>
-    </tr>
-    <?php
+
+
+
+    </form>
+
+    <table class="table table-striped table-hover">
+        <tr>
+            <th>Nome</th>
+            <th>Quantidade</th>
+            <th>valor</th>
+            <th></th>
+            <th></th>
+        </tr>
+        <?php
         foreach($load as $item){
             echo "<tr>";
                 echo "<td>".$item->nome."</td>";
                 echo "<td>".$item->quantidade."</td>";
                 echo "<td>".$item->valor."</td>";
-                 echo "<td><a href='pedidoForm.php?id=$item->id'>Editar</a></td>";
-                echo "<td><a onclick='return confirm(\"Deseja Excluir? \")' href='pedidoList.php?id=$item->id'>Deletar</a></td>";
+                 echo "<td><a href='pedidoForm.php?id=$item->id'><i class='fas fa-edit'></i></a></td>";
+                echo "<td><a onclick='return confirm(\"Deseja Excluir? \")' href='pedidoList.php?id=$item->id'><i style='color:red' class='fas fa-trash'></i></a></td>";
             echo "<tr>";
         }
     ?>
-</table>
+    </table>
+</div>
 <?php
 include "base/rodape.php";

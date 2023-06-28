@@ -33,26 +33,42 @@ if(!empty($_SESSION['msg'])) {
 }
 */
 ?>
+<div class="container">
+    <form action="pedidoForm.php" method="post">
+        <h3>Formulário pedido</h3>
+        <p style="color:red;">
+            <?php echo (!empty($_SESSION["msg"]) ? $_SESSION["msg"] : "") ?>
+        </p>
+        <input type="hidden" name="id" value="<?php echo (!empty($data->id) ? $data->id : "") ?>" />
+        <div class="container text-center">
 
-<form action="pedidoForm.php" method="post">
-    <h3>Formulário pedido</h3>
-    <p style="color:red;">
-        <?php echo (!empty($_SESSION["msg"]) ? $_SESSION["msg"] : "") ?>
-    </p>
-    <input type="hidden" name="id" value="<?php echo (!empty($data->id) ? $data->id : "") ?>" />
-    <label for="">Nome</label>
-    <input type="text" name="nome" value="<?php echo (!empty($data->nome) ? $data->nome : "") ?>"><br>
+            <div class="col align-self-center">
 
-    <label for="">Quantidade</label>
-    <input type="text" name="quantidade" value="<?php echo (!empty($data->quantidade) ? $data->quantidade : "") ?>"><br>
+                <input typ <e="text" name="nome" class="form-control" style='width:20%' placeholder="Informe o nome"
+                    value="<?php echo (!empty($data->nome) ? $data->nome : "") ?>"><br>
+            </div>
+            <div class="col align-self-center">
 
-    <label for="">valor</label>
-    <input type="text" name="valor" value="<?php echo (!empty($data->valor) ? $data->valor : "") ?>"><br>
+                <input type="number" name="quantidade" class="form-control" placeholder="Informe a quantidade"
+                    style='width:20%' value="<?php echo (!empty($data->quantidade) ? $data->quantidade : "") ?>"><br>
+            </div>
+            <div class="col align-self-center">
 
-    <button type="submit">
-        <?php echo (empty($_GET['id']) ? "Salvar" : "Atualizar") ?>
-    </button><br>
-    <a href="pedidoList.php">Voltar</a><br><br>
-</form>
+                <input type="number" name="valor" class="form-control" placeholder="Informe o valor" style='width:20%'
+                    value="<?php echo (!empty($data->valor) ? $data->valor : "") ?>"><br>
+            </div>
+
+        </div>
+
+
+
+
+
+
+        <button type="submit" class='btn btn-success'>
+            <?php echo (empty($_GET['id']) ? "Salvar" : "Atualizar") ?>
+        </button> <a href="pedidoList.php" class="btn btn-danger">Voltar</a>
+    </form>
+</div>
 <?php
 include "base/rodape.php";
