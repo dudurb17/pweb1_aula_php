@@ -4,22 +4,38 @@ include "base/header.php";
 //session_start();
 Util::verificarLogin();
 
-$pedido = new pedidoContoller();
+  $pedido = new pedidoContoller();
 
 if (!empty($_POST)) {
 
-  
+  if (empty($_POST['id'])) {
+
     $pedido->salvar($_POST);
-  
+  } else {
+    $pedido->atualizar($_POST);
+  }
 
   header("location: " . $_SESSION['url']);
 
 }
-
+if (!empty($_GET['id'])) {
+  $data = $pedido->buscar($_GET['id']);
+  //var_dump($data);
+}
+//passa o valor para a variavem mensagem e limpa da sessão:
+/*
+if(!empty($_SESSION['msg'])) {
+    $msg = $_SESSION['msg'];
+    unset($_SESSION['msg']);
+    //var_dump($msg );
+} else {
+    $msg = "";
+}
+*/
 ?>
 
 <form action="pedidoForm.php" method="post">
-    <h3>Formulário Pedido</h3>
+    <h3>Formulário pedido</h3>
     <p style="color:red;">
         <?php echo (!empty($_SESSION["msg"]) ? $_SESSION["msg"] : "") ?>
     </p>
@@ -30,7 +46,7 @@ if (!empty($_POST)) {
     <label for="">Quantidade</label>
     <input type="text" name="quantidade" value="<?php echo (!empty($data->quantidade) ? $data->quantidade : "") ?>"><br>
 
-    <label for="">Valor</label>
+    <label for="">valor</label>
     <input type="text" name="valor" value="<?php echo (!empty($data->valor) ? $data->valor : "") ?>"><br>
 
     <button type="submit">

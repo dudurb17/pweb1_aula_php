@@ -6,18 +6,36 @@
 
     $pedido = new pedidoContoller();
 
-    $load = $pedido->carregar();
+    if(!empty($_GET['id'])){
+        $pedido->deletar($_GET['id']);
+        header("location: pedidoList.php");
+        $_SESSION["msg"] = "Registro Deletado com sucesso!";
+    }
 
+    if(!empty($_POST)){
+       $load = $pedido->pesquisar($_POST);
+    } else {
+       $load = $pedido->carregar();
+    }
+/*
+//passa o valor para a variavem mensagem e limpa da sessão:
+if(!empty($_SESSION['msg'])) {
+    $msg = $_SESSION['msg'];
+    unset($_SESSION['msg']);
+} else {
+    $msg = "";
+}
+*/
 ?>
 <h3>Listagem Contatos</h3>
 <p style="color:red;">
     <?php echo (!empty($_SESSION["msg"]) ? $_SESSION["msg"] : "") ?>
 </p>
-<form action="ContatoList.php" method="post">
+<form action="pedidoList.php" method="post">
     <select name="campo">
         <option value="nome">Nome</option>
-        <option value="telefone">Telefone</option>
-        <option value="email">Email</option>
+        <option value="quantidade">quantidade</option>
+        <option value="valor">valor</option>
     </select>
     <label>Valor</label>
     <input type="text" name="valor" placeholder="Pesquisar" />
@@ -29,7 +47,7 @@
     <tr>
         <th>Nome</th>
         <th>Quantidade</th>
-        <th>Valor</th>
+        <th>valor</th>
         <th></th>
         <th></th>
     </tr>
@@ -39,8 +57,8 @@
                 echo "<td>".$item->nome."</td>";
                 echo "<td>".$item->quantidade."</td>";
                 echo "<td>".$item->valor."</td>";
-                 echo "<td><a href='ContatoForm.php?id=$item->id'>Editar</a></td>";
-                echo "<td><a onclick='return confirm(\"Deseja Excluir? \")' href='ContatoList.php?id=$item->id'>Deletar</a></td>";
+                 echo "<td><a href='pedidoForm.php?id=$item->id'>Editar</a></td>";
+                echo "<td><a onclick='return confirm(\"Deseja Excluir? \")' href='pedidoList.php?id=$item->id'>Deletar</a></td>";
             echo "<tr>";
         }
     ?>

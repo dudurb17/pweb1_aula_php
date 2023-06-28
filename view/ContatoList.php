@@ -28,9 +28,9 @@ if(!empty($_SESSION['msg'])) {
 */
 ?>
 <h3>Listagem Contatos</h3>
-    <p style="color:red;">
-        <?php echo (!empty($_SESSION["msg"]) ? $_SESSION["msg"] : "") ?>
-    </p>
+<p style="color:red;">
+    <?php echo (!empty($_SESSION["msg"]) ? $_SESSION["msg"] : "") ?>
+</p>
 <form action="ContatoList.php" method="post">
     <select name="campo">
         <option value="nome">Nome</option>
@@ -38,11 +38,11 @@ if(!empty($_SESSION['msg'])) {
         <option value="email">Email</option>
     </select>
     <label>Valor</label>
-    <input type="text" name="valor" placeholder="Pesquisar"/>
+    <input type="text" name="valor" placeholder="Pesquisar" />
     <button type="submit">Buscar</button>
     <a href="ContatoForm.php">Cadastrar</a><br><br>
 </form>
-    
+
 <table border="1">
     <tr>
         <th>Nome</th>
