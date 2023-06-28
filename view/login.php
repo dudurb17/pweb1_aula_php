@@ -4,6 +4,7 @@ include '../controller/LoginController.php';
 session_start();
 $login = new LoginController();
 
+
 if (!empty($_POST)) {
     $login->logar($_POST);
 

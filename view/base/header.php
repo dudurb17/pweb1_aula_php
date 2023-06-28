@@ -13,12 +13,14 @@ include_once dirname(__FILE__, 3) . "/Util.php";
 
 <body>
 
-<?php
+    <?php
 session_start();
 $login = !empty($_SESSION['nome']) ? $_SESSION['login'] : "";
 //$url_projeto = "http://" . $_SERVER['HTTP_HOST'] . dirname(dirname($_SERVER['SCRIPT_NAME'])) . DIRECTORY_SEPARATOR; //pega o host com o diretorio do projeto
 $url_projeto = "http://" . $_SERVER['HTTP_HOST'] . DIRECTORY_SEPARATOR; //pega o host do projeto
 ?>
-    Olá <b> <?php echo $login  ?> </b>, seja bem vindo!<a href="<?php echo $url_projeto ?>view/login.php?sair=0"> Sair </a><br>
+    Olá <b> <?php echo $login  ?> </b>, seja bem vindo!<a href="<?php echo $url_projeto ?>view/login.php?sair=0">Sair
+    </a><br>
+    <a href="sair.php">SAIR</a>
 
-Menu: <a href="<?php echo $url_projeto ?>view/base/main.php"> Início </a><br>
+    <a Menu: <a href="<?php echo $url_projeto ?>view/base/main.php"> Início </a><br>
