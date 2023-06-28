@@ -19,6 +19,29 @@
 CREATE DATABASE IF NOT EXISTS `db_aula` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `db_aula`;
 
+-- Copiando estrutura para tabela db_aula.pedido
+CREATE TABLE IF NOT EXISTS `pedido` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nome` varchar(50) COLLATE utf8mb4_bin NOT NULL DEFAULT '0',
+  `quantidade` varchar(50) COLLATE utf8mb4_bin NOT NULL DEFAULT '0',
+  `valor` varchar(50) COLLATE utf8mb4_bin NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela db_aula.pet
+CREATE TABLE IF NOT EXISTS `pet` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nome` varchar(50) COLLATE utf8mb4_bin NOT NULL DEFAULT '0',
+  `raca` varchar(50) COLLATE utf8mb4_bin NOT NULL DEFAULT '0',
+  `idade` int NOT NULL DEFAULT '0',
+  `porte` varchar(50) COLLATE utf8mb4_bin NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+
+-- Exportação de dados foi desmarcado.
+
 -- Copiando estrutura para tabela db_aula.usuario
 CREATE TABLE IF NOT EXISTS `usuario` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -29,13 +52,9 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `senha` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `login` (`login`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
--- Copiando dados para a tabela db_aula.usuario: ~3 rows (aproximadamente)
-INSERT INTO `usuario` (`id`, `nome`, `telefone`, `email`, `login`, `senha`) VALUES
-	(1, 'Administrador', '49 888008800', 'teste@teste.com', 'admin1', '123'),
-	(2, 'Jackson Five', '84 8989989', 'lordjackson@gmail.com', 'jackson', '123'),
-	(3, 'jackson', '2342342', 'asdas@test.com', 'admin', '$2y$10$DIyFfgrauW5gOHWqIshEsOVDoSoVfE5hV14Te.baQh86BZus5TNkq');
+-- Exportação de dados foi desmarcado.
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
