@@ -63,9 +63,6 @@ if(!empty($_SESSION['msg'])) {
 
             </div>
 
-
-
-
         </div>
 
         <button type="submit" class='btn btn-success'>
