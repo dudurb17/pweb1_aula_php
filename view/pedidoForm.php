@@ -23,7 +23,7 @@ if (!empty($_GET['id'])) {
   //var_dump($data);
 }
 //passa o valor para a variavem mensagem e limpa da sessão:
-/*
+
 if(!empty($_SESSION['msg'])) {
     $msg = $_SESSION['msg'];
     unset($_SESSION['msg']);
@@ -31,7 +31,7 @@ if(!empty($_SESSION['msg'])) {
 } else {
     $msg = "";
 }
-*/
+
 ?>
 <div class="container">
     <form action="pedidoForm.php" method="post">

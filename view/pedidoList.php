@@ -17,7 +17,7 @@
     } else {
        $load = $pedido->carregar();
     }
-/*
+
 //passa o valor para a variavem mensagem e limpa da sessão:
 if(!empty($_SESSION['msg'])) {
     $msg = $_SESSION['msg'];
@@ -25,7 +25,7 @@ if(!empty($_SESSION['msg'])) {
 } else {
     $msg = "";
 }
-*/
+
 ?>
 <div class="container">
     <h3>Listagem Pedidos</h3>

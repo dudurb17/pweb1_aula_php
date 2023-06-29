@@ -17,6 +17,13 @@
     } else {
        $load = $pet->carregar();
     }
+    if(!empty($_SESSION['msg'])) {
+        $msg = $_SESSION['msg'];
+        unset($_SESSION['msg']);
+        //var_dump($msg );
+    } else {
+        $msg = "";
+    }
 
 
 ?>
