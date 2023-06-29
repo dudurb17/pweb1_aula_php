@@ -13,31 +13,47 @@ if (!empty($_POST)) {
 }
 $dados = !empty($_SESSION['dados']) ? $_SESSION['dados'] : "";
 ?>
-
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous"/>
+ 
+<div class='container'> 
 <form action="RegistrarUsuarioForm.php" method="post">
     <h3>Formulário Registrar Usuário</h3>
     <p style="color:red;">
         <?php echo (!empty($_SESSION["msg"]) ? $_SESSION["msg"] : "") ?>
     </p>
-    <label for="">Nome</label>
-    <input type="text" name="nome" value="<?php echo (!empty($dados['nome']) ? $dados['nome'] : "") ?>"><br>
+    <div class="container text-center">
+            <div class="col align-self-center">
+                <input typ <e="text" name="nome" class="form-control" style='width:20%' placeholder="Informe o nome"
+                    value="<?php echo (!empty($data->nome) ? $data->nome : "") ?>"><br>
+            </div>
+            <div class="col align-self-center">
+                <input typ <e="text" name="email" class="form-control" style='width:20%' placeholder="Informe o email"
+                    value="<?php echo (!empty($data->email) ? $data->email : "") ?>"><br>
+            </div>
+            <div class="col align-self-center">
+                <input typ <e="text" name="telefone" class="form-control" style='width:20%' placeholder="Informe o telefone"
+                    value="<?php echo (!empty($data->telefone) ? $data->telefone : "") ?>"><br>
+            </div>
+            <div class="col align-self-center">
+                <input typ <e="text" name="login" class="form-control" style='width:20%' placeholder="Informe o login"
+                    value="<?php echo (!empty($data->login) ? $data->login : "") ?>"><br>
+            </div>
 
-    <label for="">Email</label>
-    <input type="text" name="email" value="<?php echo (!empty($dados['email']) ? $dados['email'] : "") ?>"><br>
+            <div class="col align-self-center">
+                <input typ <e="text" name="senha" class="form-control" style='width:20%' placeholder="Informe a senha"
+                    value="<?php echo (!empty($data->senha) ? $data->senha : "") ?>"><br>
+            </div>
+            <div class="col align-self-center">
+                <input typ <e="text" name="c_senha" class="form-control" style='width:20%' placeholder="Confirmar Senha"
+                    value="<?php echo (!empty($data->c_senha) ? $data->c_senha : "") ?>"><br>
+            </div>
+  
+</div>
 
-    <label for="">Telefone</label>
-    <input type="text" name="telefone" value="<?php echo (!empty($dados['telefone']) ? $dados['telefone'] : "") ?>"><br>
 
-    <label for="">Login</label>
-    <input type="text" name="login" value="<?php echo (!empty($dados['login']) ? $dados['login'] : "") ?>"><br>
 
-    <label for="">Senha</label>
-    <input type="password" name="senha"><br>
-
-    <label for="">Confirmar Senha</label>
-    <input type="password" name="c_senha"><br>
-
-    <button type="submit"> Cadastrar</button><br>
-    <a href="login.php">Voltar</a><br><br>
+    <button type="submit" class='btn btn-success'> Cadastrar</button>
+    <a href="login.php" class='btn btn-danger'>Voltar</a><br><br>
 </form>
+</div>
 <?php include "./base/rodape.php" ?>
