@@ -71,8 +71,8 @@ if(!empty($_SESSION['msg'])) {
                 echo "<td>".$item->nome."</td>";
                 echo "<td>".$item->telefone."</td>";
                 echo "<td>".$item->email."</td>";
-                 echo "<td><a href='ContatoForm.php?id=$item->id'>Editar</a></td>";
-                echo "<td><a onclick='return confirm(\"Deseja Excluir? \")' href='ContatoList.php?id=$item->id'>Deletar</a></td>";
+                 echo "<td><a href='ContatoForm.php?id=$item->id'><i class='fas fa-edit'></i></a></td>";
+                echo "<td><a onclick='return confirm(\"Deseja Excluir? \")' href='ContatoList.php?id=$item->id'><i style='color:red' class='fas fa-trash'></i></a></td>";
             echo "<tr>";
         }
     ?>

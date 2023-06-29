@@ -42,7 +42,7 @@ if(!empty($_SESSION['msg'])) {
         <input type="hidden" name="id" value="<?php echo (!empty($data->id) ? $data->id : "") ?>" />
         <div class="container text-center">
             <div class="col align-self-center">
-                <input typ <e="text" name="nome" class="form-control" style='width:20%' placeholder="Informe o nome"
+                <input type="text" name="nome" class="form-control" style='width:20%' placeholder="Informe o nome"
                     value="<?php echo (!empty($data->nome) ? $data->nome : "") ?>"><br>
             </div>
 
