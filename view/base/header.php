@@ -45,6 +45,9 @@ $url_projeto = "http://" . $_SERVER['HTTP_HOST'] . DIRECTORY_SEPARATOR; //pega o
                     <li class="nav-item">
                         <a class="nav-link" href="<?php echo $url_projeto ?>view/petList.php">Pets</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?php echo $url_projeto ?>view/estoqueList.php">Estoque</a>
+                    </li>
                 </ul>
 
             </div>
