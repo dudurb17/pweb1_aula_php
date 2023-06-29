@@ -33,26 +33,34 @@ if(!empty($_SESSION['msg'])) {
 }
 */
 ?>
+<div class="container">
+    <form action="ContatoForm.php" method="post">
+        <h3>Formulário Contato</h3>
+        <p style="color:red;">
+            <?php echo (!empty($_SESSION["msg"]) ? $_SESSION["msg"] : "") ?>
+        </p>
+        <input type="hidden" name="id" value="<?php echo (!empty($data->id) ? $data->id : "") ?>" />
+        <div class="container text-center">
+            <div class="col align-self-center">
+                <input typ <e="text" name="nome" class="form-control" style='width:20%' placeholder="Informe o nome"
+                    value="<?php echo (!empty($data->nome) ? $data->nome : "") ?>"><br>
+            </div>
+            <div class="col align-self-center">
+                <input typ <e="text" name="email" class="form-control" style='width:20%' placeholder="Informe o email"
+                    value="<?php echo (!empty($data->email) ? $data->email : "") ?>"><br>
+            </div>
+            <div class="col align-self-center">
+                <input typ <e="text" name="telefone" class="form-control" style='width:20%'
+                    placeholder="Informe o telefone"
+                    value="<?php echo (!empty($data->telefone) ? $data->telefone : "") ?>"><br>
+            </div>
 
-<form action="ContatoForm.php" method="post">
-  <h3>Formulário Contato</h3>
-    <p style="color:red;">
-        <?php echo (!empty($_SESSION["msg"]) ? $_SESSION["msg"] : "") ?>
-    </p>
-  <input type="hidden" name="id" value="<?php echo (!empty($data->id) ? $data->id : "") ?>" />
-  <label for="">Nome</label>
-  <input type="text" name="nome" value="<?php echo (!empty($data->nome) ? $data->nome : "") ?>"><br>
+        </div>
 
-  <label for="">Email</label>
-  <input type="text" name="email" value="<?php echo (!empty($data->email) ? $data->email : "") ?>"><br>
+        <button type="submit" class='btn btn-success'>
+            <?php echo (empty($_GET['id']) ? "Salvar" : "Atualizar") ?>
+        </button> <a href="ContatoList.php" class="btn btn-danger">Voltar</a>
+    </form>
 
-  <label for="">Telefone</label>
-  <input type="text" name="telefone" value="<?php echo (!empty($data->telefone) ? $data->telefone : "") ?>"><br>
-
-  <button type="submit">
-    <?php echo (empty($_GET['id']) ? "Salvar" : "Atualizar") ?>
-  </button><br>
-  <a href="ContatoList.php">Voltar</a><br><br>
-</form>
-<?php
+    <?php
 include "base/rodape.php";

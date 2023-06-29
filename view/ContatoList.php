@@ -27,31 +27,45 @@ if(!empty($_SESSION['msg'])) {
 }
 */
 ?>
-<h3>Listagem Contatos</h3>
-<p style="color:red;">
-    <?php echo (!empty($_SESSION["msg"]) ? $_SESSION["msg"] : "") ?>
-</p>
-<form action="ContatoList.php" method="post">
-    <select name="campo">
-        <option value="nome">Nome</option>
-        <option value="telefone">Telefone</option>
-        <option value="email">Email</option>
-    </select>
-    <label>Valor</label>
-    <input type="text" name="valor" placeholder="Pesquisar" />
-    <button type="submit">Buscar</button>
-    <a href="ContatoForm.php">Cadastrar</a><br><br>
-</form>
+<div class='container'>
 
-<table border="1">
-    <tr>
-        <th>Nome</th>
-        <th>Telefone</th>
-        <th>Email</th>
-        <th></th>
-        <th></th>
-    </tr>
-    <?php
+    <h3>Listagem Contatos</h3>
+    <p style="color:red;">
+        <?php echo (!empty($_SESSION["msg"]) ? $_SESSION["msg"] : "") ?>
+    </p>
+    <form action="ContatoList.php" method="post">
+        <div class="container text-center">
+            <div class="row row-cols-auto">
+                <div class="col">
+                    <form action="pedidoList.php" method="post">
+                        <select name="campo" class='form-select'>
+
+                            <option value="nome">Nome</option>
+                            <option value="telefone">Telefone</option>
+                            <option value="email">Email</option>
+
+                        </select>
+                </div>
+                <div class="col"><input type="text" name="valor" placeholder="Pesquisar" class="form-control" /></div>
+                <div class="col"><button type="submit" class="btn btn-outline-success">Buscar</button></div>
+                <div class="col"><a href="ContatoForm.php" class="btn btn-primary"><i class="fas fa-plus"></i>
+                        Cadastrar</a></div>
+            </div>
+        </div>
+
+
+
+    </form>
+
+    <table class="table table-striped table-hover">
+        <tr>
+            <th>Nome</th>
+            <th>Telefone</th>
+            <th>Email</th>
+            <th></th>
+            <th></th>
+        </tr>
+        <?php
         foreach($load as $item){
             echo "<tr>";
                 echo "<td>".$item->nome."</td>";
@@ -62,6 +76,7 @@ if(!empty($_SESSION['msg'])) {
             echo "<tr>";
         }
     ?>
-</table>
+    </table>
+</div>
 <?php
 include "base/rodape.php";
