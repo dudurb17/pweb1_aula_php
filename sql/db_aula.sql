@@ -28,7 +28,10 @@ CREATE TABLE IF NOT EXISTS `estoque` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
--- Exportação de dados foi desmarcado.
+-- Copiando dados para a tabela db_aula.estoque: ~2 rows (aproximadamente)
+INSERT INTO `estoque` (`id`, `nome`, `quantidade`, `preco`) VALUES
+	(1, 'brinquedinho', 234, '378'),
+	(3, 'osso', 123, '10');
 
 -- Copiando estrutura para tabela db_aula.pedido
 CREATE TABLE IF NOT EXISTS `pedido` (
@@ -39,7 +42,11 @@ CREATE TABLE IF NOT EXISTS `pedido` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
--- Exportação de dados foi desmarcado.
+-- Copiando dados para a tabela db_aula.pedido: ~3 rows (aproximadamente)
+INSERT INTO `pedido` (`id`, `nome`, `quantidade`, `valor`) VALUES
+	(1, 'oss', '20', '1'),
+	(12, 'tigel', '12', '32'),
+	(13, 'teste', '123', '12');
 
 -- Copiando estrutura para tabela db_aula.pet
 CREATE TABLE IF NOT EXISTS `pet` (
@@ -51,7 +58,10 @@ CREATE TABLE IF NOT EXISTS `pet` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
--- Exportação de dados foi desmarcado.
+-- Copiando dados para a tabela db_aula.pet: ~2 rows (aproximadamente)
+INSERT INTO `pet` (`id`, `nome`, `raca`, `idade`, `porte`) VALUES
+	(1, 'cabrito', 'pelud', 10, 'med'),
+	(6, 'papagaio', 'arara', 123, 'grande');
 
 -- Copiando estrutura para tabela db_aula.usuario
 CREATE TABLE IF NOT EXISTS `usuario` (
@@ -65,7 +75,11 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   UNIQUE KEY `login` (`login`)
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
--- Exportação de dados foi desmarcado.
+-- Copiando dados para a tabela db_aula.usuario: ~4 rows (aproximadamente)
+INSERT INTO `usuario` (`id`, `nome`, `telefone`, `email`, `login`, `senha`) VALUES
+	(1, 'Administrado', '49 888008800', 'teste@teste.com', 'admin1', '123'),
+	(12, 'Eduardo', '49991767992', 'eduardo.robettibedin@gmail.com', 'dudu', '$2y$10$4HQRH500cvS50Ap6g.IPSe24hVMIcF7BTjFL3WUCZwzQXFkP9TWE2'),
+	(16, 'fernando', '49991767992', 'fernando@gmail.com', 'fernando', '$2y$10$LSZasEz11EfGuOTFrvG2fuzB3rPiXHRP9USgy.XdUHFMppmIWpPzm');
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
