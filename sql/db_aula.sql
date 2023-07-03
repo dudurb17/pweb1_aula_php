@@ -25,13 +25,15 @@ CREATE TABLE IF NOT EXISTS `estoque` (
   `nome` varchar(50) COLLATE utf8mb4_bin NOT NULL DEFAULT '0',
   `quantidade` int NOT NULL DEFAULT '0',
   `preco` varchar(50) COLLATE utf8mb4_bin NOT NULL DEFAULT '0',
+  `cnpj` int NOT NULL,
+  `peso` float NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 -- Copiando dados para a tabela db_aula.estoque: ~2 rows (aproximadamente)
-INSERT INTO `estoque` (`id`, `nome`, `quantidade`, `preco`) VALUES
-	(1, 'brinquedinho', 234, '378'),
-	(3, 'osso', 123, '10');
+INSERT INTO `estoque` (`id`, `nome`, `quantidade`, `preco`, `cnpj`, `peso`) VALUES
+	(6, 'Brinquedo', 435, '3434', 1234546676, 230.4),
+	(7, 'papagaio', 1234, '12', 21323234, 23.45);
 
 -- Copiando estrutura para tabela db_aula.pedido
 CREATE TABLE IF NOT EXISTS `pedido` (
@@ -39,14 +41,15 @@ CREATE TABLE IF NOT EXISTS `pedido` (
   `nome` varchar(50) COLLATE utf8mb4_bin NOT NULL DEFAULT '0',
   `quantidade` varchar(50) COLLATE utf8mb4_bin NOT NULL DEFAULT '0',
   `valor` varchar(50) COLLATE utf8mb4_bin NOT NULL DEFAULT '0',
+  `cpf` int NOT NULL,
+  `data` date NOT NULL,
+  `observacao` varchar(100) COLLATE utf8mb4_bin NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
--- Copiando dados para a tabela db_aula.pedido: ~3 rows (aproximadamente)
-INSERT INTO `pedido` (`id`, `nome`, `quantidade`, `valor`) VALUES
-	(1, 'oss', '20', '1'),
-	(12, 'tigel', '12', '32'),
-	(13, 'teste', '123', '12');
+-- Copiando dados para a tabela db_aula.pedido: ~1 rows (aproximadamente)
+INSERT INTO `pedido` (`id`, `nome`, `quantidade`, `valor`, `cpf`, `data`, `observacao`) VALUES
+	(14, 'teste', '23', '34', 34343545, '2023-07-14', 'teste');
 
 -- Copiando estrutura para tabela db_aula.pet
 CREATE TABLE IF NOT EXISTS `pet` (
