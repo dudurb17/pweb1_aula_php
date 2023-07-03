@@ -21,6 +21,7 @@ session_start();
 $login = !empty($_SESSION['nome']) ? $_SESSION['login'] : "";
 //$url_projeto = "http://" . $_SERVER['HTTP_HOST'] . dirname(dirname($_SERVER['SCRIPT_NAME'])) . DIRECTORY_SEPARATOR; //pega o host com o diretorio do projeto
 $url_projeto = "http://" . $_SERVER['HTTP_HOST'] . DIRECTORY_SEPARATOR; //pega o host do projeto
+
 ?>
 
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -52,8 +53,11 @@ $url_projeto = "http://" . $_SERVER['HTTP_HOST'] . DIRECTORY_SEPARATOR; //pega o
 
             </div>
             <div class='class="row justify-content-end"'>
-                <a type="button" class='btn btn-danger' href="<?php echo $url_projeto ?>view/login.php?sair=0">
-                    Sair</a>
+                <form action="login.php" method="post">
+                    <a type="button" class='btn btn-danger' name='sair'
+                        href="<?php echo $url_projeto ?>view/login.php?sair=0">
+                        Sair</a>
+                </form>
+                </di<v>
             </div>
-        </div>
     </nav>

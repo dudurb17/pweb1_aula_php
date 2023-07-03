@@ -7,10 +7,10 @@ $login = new LoginController();
 
 if (!empty($_POST)) {
     $login->logar($_POST);
-
     $dados = "";
     header("location: " . $_SESSION['url']);
-} else if (!empty($_GET['sair'])) {
+} 
+ if(isset($_GET['sair'])) {
     session_destroy();
 }
 $dados = !empty($_SESSION['dados']) ? $_SESSION['dados'] : "";
