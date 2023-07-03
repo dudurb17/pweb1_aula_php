@@ -21,7 +21,7 @@ class estoqueController {
     
         } catch (Exception $e){
             $_SESSION['dados'] = $dados;
-            $_SESSION['url'] = 'pedidoForm.php';
+            $_SESSION['url'] = 'estoqueForm.php';
             $_SESSION['msg'] = $e->getMessage();
         }
     }
@@ -36,7 +36,7 @@ class estoqueController {
     
         } catch (Exception $e){
             $_SESSION['dados'] = $dados;
-            $_SESSION['url'] = 'pedidoForm.php?id='.$dados['id'];
+            $_SESSION['url'] = 'estoqueForm.php?id='.$dados['id'];
             $_SESSION['msg'] = $e->getMessage();
     
         }

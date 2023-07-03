@@ -6,11 +6,7 @@
 
     $estoque = new estoqueController();
 
-    if(!empty($_GET['id'])){
-        $estoque->deletar($_GET['id']);
-        header("location: petList.php");
-        $_SESSION["msg"] = "Registro Deletado com sucesso!";
-    }
+   
 
     if(!empty($_POST)){
        $load = $estoque->pesquisar($_POST);
@@ -23,6 +19,11 @@
         //var_dump($msg );
     } else {
         $msg = "";
+    }
+    if(!empty($_GET['id'])){
+        $estoque->deletar($_GET['id']);
+        header("location: estoqueList.php");
+        $_SESSION["msg"] = "Registro Deletado com sucesso!";
     }
 
 
@@ -43,6 +44,8 @@
                             <option value="nome">Nome</option>
                             <option value="quantidade">Quantidade</option>
                             <option value="preco">Preço</option>
+                            <option value="cnpj">CNPJ</option>
+                            <option value="peso">Peso</option>
 
 
                         </select>
@@ -62,7 +65,8 @@
             <th>Nome</th>
             <th>Quantidade</th>
             <th>Preço</th>
-
+            <th>CNPJ</th>
+            <th>Peso(kg)</th>
             <th></th>
             <th></th>
         </tr>
@@ -72,6 +76,8 @@
                 echo "<td>".$item->nome."</td>";
                 echo "<td>".$item->quantidade."</td>";
                 echo "<td>".$item->preco."</td>";
+                echo "<td>".$item->cnpj."</td>";
+                echo "<td>".$item->peso."</td>";
                  echo "<td><a href='estoqueForm.php?id=$item->id'><i class='fas fa-edit'></i></a></td>";
                 echo "<td><a onclick='return confirm(\"Deseja Excluir? \")' href='estoqueList.php?id=$item->id'><i style='color:red' class='fas fa-trash'></i></a></td>";
             echo "<tr>";

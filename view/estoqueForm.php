@@ -56,6 +56,15 @@ if(!empty($_SESSION['msg'])) {
                     value="<?php echo (!empty($data->preco) ? $data->preco : "") ?>"><br>
 
             </div>
+            <div class="col align-self-center">
+                <input type="text" name="cnpj" class="form-control" style='width:20%' placeholder="Informe o CNPJ"
+                    value="<?php echo (!empty($data->cnpj) ? $data->cnpj : "") ?>"><br>
+            </div>
+            <div class="col align-self-center">
+                <input type="text" name="peso" class="form-control" style='width:20%'
+                    placeholder="Informe o peso. EX: 456.45"
+                    value="<?php echo (!empty($data->peso) ? $data->peso : "") ?>"><br>
+            </div>
 
 
 
