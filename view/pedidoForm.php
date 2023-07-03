@@ -57,6 +57,21 @@ if(!empty($_SESSION['msg'])) {
                 <input type="number" name="valor" class="form-control" placeholder="Informe o valor" style='width:20%'
                     value="<?php echo (!empty($data->valor) ? $data->valor : "") ?>"><br>
             </div>
+            <div class="col align-self-center">
+
+                <input type="number" name="cpf" class="form-control" placeholder="Informe o CPF" style='width:20%'
+                    value="<?php echo (!empty($data->cpf) ? $data->cpf : "") ?>"><br>
+            </div>
+            <div class="col align-self-center">
+
+                <input type="date" name="data" class="form-control" placeholder="Informe a data" style='width:20%'
+                    value="<?php echo (!empty($data->data) ? $data->data : "") ?>"><br>
+            </div>
+            <div class="col align-self-center">
+
+                <input type="text" name="observacao" class="form-control" placeholder="Uma breve observação"
+                    style='width:20%' value="<?php echo (!empty($data->observacao) ? $data->observacao : "") ?>"><br>
+            </div>
 
         </div>
         <button type="submit" class='btn btn-success'>

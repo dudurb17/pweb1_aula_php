@@ -40,6 +40,9 @@ if(!empty($_SESSION['msg'])) {
                         <option value="nome">Nome</option>
                         <option value="quantidade">quantidade</option>
                         <option value="valor">valor</option>
+                        <option value="cpf">CPF</option>
+                        <option value="data">Data</option>
+                        <option value="observacao">Observação</option>
                     </select>
             </div>
             <div class="col"><input type="text" name="valor" placeholder="Pesquisar" class="form-control" /></div>
@@ -59,6 +62,9 @@ if(!empty($_SESSION['msg'])) {
             <th>Nome</th>
             <th>Quantidade</th>
             <th>valor</th>
+            <th>CPF</th>
+            <th>Data pedido</th>
+            <th>Observação</th>
             <th></th>
             <th></th>
         </tr>
@@ -68,6 +74,9 @@ if(!empty($_SESSION['msg'])) {
                 echo "<td>".$item->nome."</td>";
                 echo "<td>".$item->quantidade."</td>";
                 echo "<td>".$item->valor."</td>";
+                echo "<td>".$item->cpf."</td>";
+                echo "<td>".$item->data."</td>";
+                echo "<td>".$item->observacao."</td>";
                  echo "<td><a href='pedidoForm.php?id=$item->id'><i class='fas fa-edit'></i></a></td>";
                 echo "<td><a onclick='return confirm(\"Deseja Excluir? \")' href='pedidoList.php?id=$item->id'><i style='color:red' class='fas fa-trash'></i></a></td>";
             echo "<tr>";
