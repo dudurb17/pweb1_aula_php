@@ -22,44 +22,51 @@ USE `db_aula`;
 -- Copiando estrutura para tabela db_aula.estoque
 CREATE TABLE IF NOT EXISTS `estoque` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `nome` varchar(50) COLLATE utf8mb4_bin NOT NULL DEFAULT '0',
+  `nome` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '0',
   `quantidade` int NOT NULL DEFAULT '0',
-  `preco` varchar(50) COLLATE utf8mb4_bin NOT NULL DEFAULT '0',
+  `preco` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '0',
   `cnpj` int NOT NULL,
   `peso` float NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 -- Copiando dados para a tabela db_aula.estoque: ~2 rows (aproximadamente)
 INSERT INTO `estoque` (`id`, `nome`, `quantidade`, `preco`, `cnpj`, `peso`) VALUES
 	(6, 'Brinquedo', 435, '3434', 1234546676, 230.4),
-	(7, 'papagaio', 1234, '12', 21323234, 23.45);
+	(7, 'papagaio', 12, '12', 21323234, 23.4);
 
 -- Copiando estrutura para tabela db_aula.pedido
 CREATE TABLE IF NOT EXISTS `pedido` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `nome` varchar(50) COLLATE utf8mb4_bin NOT NULL DEFAULT '0',
-  `quantidade` varchar(50) COLLATE utf8mb4_bin NOT NULL DEFAULT '0',
-  `valor` varchar(50) COLLATE utf8mb4_bin NOT NULL DEFAULT '0',
+  `nome` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '0',
+  `quantidade` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '0',
+  `valor` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '0',
   `cpf` int NOT NULL,
   `data` date NOT NULL,
-  `observacao` varchar(100) COLLATE utf8mb4_bin NOT NULL DEFAULT '',
+  `observacao` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
--- Copiando dados para a tabela db_aula.pedido: ~1 rows (aproximadamente)
+-- Copiando dados para a tabela db_aula.pedido: ~0 rows (aproximadamente)
 INSERT INTO `pedido` (`id`, `nome`, `quantidade`, `valor`, `cpf`, `data`, `observacao`) VALUES
-	(14, 'teste', '23', '34', 34343545, '2023-07-14', 'teste');
+	(14, 'teste', '23', '34', 34343545, '2023-07-14', 'teste'),
+	(16, 'tico', '3434', '3434', 23434545, '2023-06-22', 'seco'),
+	(17, 'Murilo', '1233', '34', 43545, '2022-10-20', 'fragil'),
+	(18, 'tico', '23', '34', 435465, '2023-07-13', '546'),
+	(19, 'Eduardo', '4454', '454', 345, '2023-07-30', '34'),
+	(20, 'nadia', '34', '43', 324324234, '2023-04-06', 'seco'),
+	(21, 'Eduardo', '5', '43543', 435, '2023-02-07', 'molhado'),
+	(23, 'teste', '23', '567', 1232543, '2026-10-04', 'exemplo');
 
 -- Copiando estrutura para tabela db_aula.pet
 CREATE TABLE IF NOT EXISTS `pet` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `nome` varchar(50) COLLATE utf8mb4_bin NOT NULL DEFAULT '0',
-  `raca` varchar(50) COLLATE utf8mb4_bin NOT NULL DEFAULT '0',
+  `nome` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '0',
+  `raca` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '0',
   `idade` int NOT NULL DEFAULT '0',
-  `porte` varchar(50) COLLATE utf8mb4_bin NOT NULL DEFAULT '0',
+  `porte` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 -- Copiando dados para a tabela db_aula.pet: ~2 rows (aproximadamente)
 INSERT INTO `pet` (`id`, `nome`, `raca`, `idade`, `porte`) VALUES
@@ -76,13 +83,14 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `senha` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `login` (`login`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
--- Copiando dados para a tabela db_aula.usuario: ~4 rows (aproximadamente)
+-- Copiando dados para a tabela db_aula.usuario: ~3 rows (aproximadamente)
 INSERT INTO `usuario` (`id`, `nome`, `telefone`, `email`, `login`, `senha`) VALUES
 	(1, 'Administrado', '49 888008800', 'teste@teste.com', 'admin1', '123'),
 	(12, 'Eduardo', '49991767992', 'eduardo.robettibedin@gmail.com', 'dudu', '$2y$10$4HQRH500cvS50Ap6g.IPSe24hVMIcF7BTjFL3WUCZwzQXFkP9TWE2'),
-	(16, 'fernando', '49991767992', 'fernando@gmail.com', 'fernando', '$2y$10$LSZasEz11EfGuOTFrvG2fuzB3rPiXHRP9USgy.XdUHFMppmIWpPzm');
+	(16, 'fernando', '49991767992', 'fernando@gmail.com', 'fernando', '$2y$10$LSZasEz11EfGuOTFrvG2fuzB3rPiXHRP9USgy.XdUHFMppmIWpPzm'),
+	(17, 'teste', '12334534', 'eduardo@gmail.com', NULL, NULL);
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
