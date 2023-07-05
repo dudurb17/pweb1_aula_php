@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS `pedido` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
--- Copiando dados para a tabela db_aula.pedido: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela db_aula.pedido: ~8 rows (aproximadamente)
 INSERT INTO `pedido` (`id`, `nome`, `quantidade`, `valor`, `cpf`, `data`, `observacao`) VALUES
 	(14, 'teste', '23', '34', 34343545, '2023-07-14', 'teste'),
 	(16, 'tico', '3434', '3434', 23434545, '2023-06-22', 'seco'),
@@ -85,12 +85,13 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   UNIQUE KEY `login` (`login`)
 ) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
--- Copiando dados para a tabela db_aula.usuario: ~3 rows (aproximadamente)
+-- Copiando dados para a tabela db_aula.usuario: ~4 rows (aproximadamente)
 INSERT INTO `usuario` (`id`, `nome`, `telefone`, `email`, `login`, `senha`) VALUES
 	(1, 'Administrado', '49 888008800', 'teste@teste.com', 'admin1', '123'),
 	(12, 'Eduardo', '49991767992', 'eduardo.robettibedin@gmail.com', 'dudu', '$2y$10$4HQRH500cvS50Ap6g.IPSe24hVMIcF7BTjFL3WUCZwzQXFkP9TWE2'),
 	(16, 'fernando', '49991767992', 'fernando@gmail.com', 'fernando', '$2y$10$LSZasEz11EfGuOTFrvG2fuzB3rPiXHRP9USgy.XdUHFMppmIWpPzm'),
-	(17, 'teste', '12334534', 'eduardo@gmail.com', NULL, NULL);
+	(17, 'teste', '12334534', 'eduardo@gmail.com', NULL, NULL),
+	(18, 'admin', '12323432', 'eduardo@gmail.com', 'admin', '$2y$10$MKmx15ZhqLEpJpgzKLTgbOEdZAr1Knwt06oDhM/gKA1XCiz2lrcj.');
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
