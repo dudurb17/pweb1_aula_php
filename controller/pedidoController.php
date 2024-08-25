@@ -57,8 +57,9 @@ class pedidoContoller
     }
     public function deletar($id)
     {
-
         $this->model->deletar($this->table, $id);
+        $_SESSION['msg'] = "Registro deletedo com sucesso!";
+
     }
     public function buscar($id)
     {
