@@ -28,7 +28,7 @@ $dados = !empty($_SESSION['dados']) ? $_SESSION['dados'] : "";
                     value="<?php echo (!empty($data->nome) ? $data->nome : "") ?>"><br>
             </div>
             <div class="col align-self-center">
-                <input "text" name="email" class="form-control" style='width:20%' placeholder="Informe o email"
+                <input type="text" name="email" class="form-control" style='width:20%' placeholder="Informe o email"
                     value="<?php echo (!empty($data->email) ? $data->email : "") ?>"><br>
             </div>
             <div class="col align-self-center">

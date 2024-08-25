@@ -9,8 +9,8 @@ if (!empty($_POST)) {
     $login->logar($_POST);
     $dados = "";
     header("location: " . $_SESSION['url']);
-} 
- if(isset($_GET['sair'])) {
+}
+if (isset($_GET['sair'])) {
     session_destroy();
 }
 $dados = !empty($_SESSION['dados']) ? $_SESSION['dados'] : "";
@@ -40,8 +40,6 @@ $dados = !empty($_SESSION['dados']) ? $_SESSION['dados'] : "";
                                     <input type="password" name="senha" class="form-control"
                                         placeholder="Informe a senha" /><br>
                                 </div>
-
-
                                 <button type="submit" class=' btn btn-success'>Logar</button>
                                 <button class='btn btn-warning'><a
                                         href="RegistrarUsuarioForm.php">Registrar-se</a></button>

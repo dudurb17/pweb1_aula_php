@@ -6,7 +6,7 @@ class BD
     private $dbname = "db_aula";
     private $port = 3306;
     private $usuario = "root";
-    private $senha = "";
+    private $senha = "appOeste24";
     private $db_charset = "utf8";
 
 
@@ -126,7 +126,7 @@ class BD
         if (password_verify($dados['senha'], $result->senha)) {
             return $result;
         } else {
-            return throw new Exception(" O login ou senha esta errado. Por favor tente novamente.");
+            throw new Exception(" O login ou senha esta errado. Por favor tente novamente.");
         }
     }
 }

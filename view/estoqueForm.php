@@ -8,22 +8,22 @@ $estoque = new estoqueController();
 
 if (!empty($_POST)) {
 
-  if (empty($_POST['id'])) {
+    if (empty($_POST['id'])) {
 
-    $estoque->salvar($_POST);
-  } else {
-    $estoque->atualizar($_POST);
-  }
+        $estoque->salvar($_POST);
+    } else {
+        $estoque->atualizar($_POST);
+    }
 
-  header("location: " . $_SESSION['url']);
+    header("location: " . $_SESSION['url']);
 
 }
 if (!empty($_GET['id'])) {
-  $data = $estoque->buscar($_GET['id']);
-  //var_dump($data);
+    $data = $estoque->buscar($_GET['id']);
+    //var_dump($data);
 }
 //passa o valor para a variavem mensagem e limpa da sessão:<!-- // /* -->
-if(!empty($_SESSION['msg'])) {
+if (!empty($_SESSION['msg'])) {
     $msg = $_SESSION['msg'];
     unset($_SESSION['msg']);
     //var_dump($msg );
@@ -41,7 +41,7 @@ if(!empty($_SESSION['msg'])) {
         <input type="hidden" name="id" value="<?php echo (!empty($data->id) ? $data->id : "") ?>" />
         <div class="container text-center">
             <div class="col align-self-center">
-                <input typ <e="text" name="nome" class="form-control" style='width:20%' placeholder="Informe o nome"
+                <input type="text" name="nome" class="form-control" style='width:20%' placeholder="Informe o nome"
                     value="<?php echo (!empty($data->nome) ? $data->nome : "") ?>"><br>
             </div>
 
