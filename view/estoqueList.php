@@ -6,6 +6,7 @@ Util::verificarLogin();
 
 $estoque = new estoqueController();
 
+$msg = "";
 
 
 if (!empty($_POST)) {
@@ -28,48 +29,48 @@ if (!empty($_GET['id'])) {
 
 ?>
 <div class="container">
-    <h3>Listagem de estoque</h3>
-    <p style="color:red;">
-        <?php echo (!empty($_SESSION["msg"]) ? $_SESSION["msg"] : "") ?>
-    </p>
+  <h3>Listagem de estoque</h3>
+  <p style="color:red;">
+    <?php echo $msg != "" ? $msg : "" ?>
+  </p>
 
-    <form action="estoqueList.php" method="post">
-        <div class="container text-center">
-            <div class="row row-cols-auto">
-                <div class="col">
-                    <form action="estoqueList.php" method="post">
-                        <select name="campo" class='form-select'>
+  <form action="estoqueList.php" method="post">
+    <div class="container text-center">
+      <div class="row row-cols-auto">
+        <div class="col">
+          <form action="estoqueList.php" method="post">
+            <select name="campo" class='form-select'>
 
-                            <option value="nome">Nome</option>
-                            <option value="quantidade">Quantidade</option>
-                            <option value="preco">Preço</option>
-                            <option value="cnpj">CNPJ</option>
-                            <option value="peso">Peso</option>
+              <option value="nome">Nome</option>
+              <option value="quantidade">Quantidade</option>
+              <option value="preco">Preço</option>
+              <option value="cnpj">CNPJ</option>
+              <option value="peso">Peso</option>
 
 
-                        </select>
-                </div>
-                <div class="col"><input type="text" name="valor" placeholder="Pesquisar" class="form-control" /></div>
-                <div class="col"><button type="submit" class="btn btn-outline-success">Buscar</button></div>
-                <div class="col"><a href="estoqueForm.php" class="btn btn-primary"><i class="fas fa-plus"></i>
-                        Cadastrar</a></div>
-            </div>
+            </select>
         </div>
+        <div class="col"><input type="text" name="valor" placeholder="Pesquisar" class="form-control" /></div>
+        <div class="col"><button type="submit" class="btn btn-outline-success">Buscar</button></div>
+        <div class="col"><a href="estoqueForm.php" class="btn btn-primary"><i class="fas fa-plus"></i>
+            Cadastrar</a></div>
+      </div>
+    </div>
 
 
-    </form>
+  </form>
 
-    <table class="table table-striped table-hover">
-        <tr>
-            <th>Nome</th>
-            <th>Quantidade</th>
-            <th>Preço</th>
-            <th>CNPJ</th>
-            <th>Peso(kg)</th>
-            <th></th>
-            <th></th>
-        </tr>
-        <?php
+  <table class="table table-striped table-hover">
+    <tr>
+      <th>Nome</th>
+      <th>Quantidade</th>
+      <th>Preço</th>
+      <th>CNPJ</th>
+      <th>Peso(kg)</th>
+      <th></th>
+      <th></th>
+    </tr>
+    <?php
         foreach ($load as $item) {
             echo "<tr>";
             echo "<td>" . $item->nome . "</td>";
@@ -82,7 +83,7 @@ if (!empty($_GET['id'])) {
             echo "<tr>";
         }
         ?>
-    </table>
+  </table>
 </div>
 <?php
 include "base/rodape.php";

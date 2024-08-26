@@ -8,25 +8,24 @@ $pet = new petController();
 
 if (!empty($_POST)) {
 
-  if (empty($_POST['id'])) {
+    if (empty($_POST['id'])) {
 
-    $pet->salvar($_POST);
-  } else {
-    $pet->atualizar($_POST);
-  }
+        $pet->salvar($_POST);
+    } else {
+        $pet->atualizar($_POST);
+    }
 
-  header("location: " . $_SESSION['url']);
+    header("location: " . $_SESSION['url']);
 
 }
 if (!empty($_GET['id'])) {
-  $data = $pet->buscar($_GET['id']);
-  //var_dump($data);
+    $data = $pet->buscar($_GET['id']);
+    //var_dump($data);
 }
 //passa o valor para a variavem mensagem e limpa da sessão:
 
-if(!empty($_SESSION['msg'])) {
+if (!empty($_SESSION['msg'])) {
     $msg = $_SESSION['msg'];
-    unset($_SESSION['msg']);
     //var_dump($msg );
 } else {
     $msg = "";
@@ -43,12 +42,12 @@ if(!empty($_SESSION['msg'])) {
         <div class="container text-center">
             <div class="col align-self-center">
                 <input type="text" name="nome" class="form-control" style='width:20%' placeholder="Informe o nome"
-                    value="<?php echo (!empty($data->nome) ? $data->nome : "") ?>"><br>
+                    required value="<?php echo (!empty($data->nome) ? $data->nome : "") ?>"><br>
             </div>
 
             <div class="col align-self-center">
                 <input type="text" name="raca" class="form-control" style='width:20%' placeholder="Informe a raça"
-                    value="<?php echo (!empty($data->raca) ? $data->raca : "") ?>"><br>
+                    required value="<?php echo (!empty($data->raca) ? $data->raca : "") ?>"><br>
             </div>
 
             <div class="col align-self-center">

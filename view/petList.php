@@ -1,36 +1,35 @@
 <?php
-    include '../controller/petController.php';
-    include "base/header.php";
+include '../controller/petController.php';
+include "base/header.php";
 
-    Util::verificarLogin();
+Util::verificarLogin();
+$pet = new petController();
+$msg = "";
+if (!empty($_GET['id'])) {
+    $pet->deletar($_GET['id']);
+    header("location: petList.php");
+    $_SESSION["msg"] = "Registro Deletado com sucesso!";
+}
 
-    $pet = new petController();
-
-    if(!empty($_GET['id'])){
-        $pet->deletar($_GET['id']);
-        header("location: petList.php");
-        $_SESSION["msg"] = "Registro Deletado com sucesso!";
-    }
-
-    if(!empty($_POST)){
-       $load = $pet->pesquisar($_POST);
-    } else {
-       $load = $pet->carregar();
-    }
-    if(!empty($_SESSION['msg'])) {
-        $msg = $_SESSION['msg'];
-        unset($_SESSION['msg']);
-        //var_dump($msg );
-    } else {
-        $msg = "";
-    }
+if (!empty($_POST)) {
+    $load = $pet->pesquisar($_POST);
+} else {
+    $load = $pet->carregar();
+}
+if (!empty($_SESSION['msg'])) {
+    $msg = $_SESSION['msg'];
+    unset($_SESSION['msg']);
+    //var_dump($msg );
+} else {
+    $msg = "";
+}
 
 
 ?>
 <div class="container">
     <h3>Listagem de pet</h3>
     <p style="color:red;">
-        <?php echo (!empty($_SESSION["msg"]) ? $_SESSION["msg"] : "") ?>
+        <?php echo $msg != "" ? $msg : "" ?>
     </p>
 
     <form action="petList.php" method="post">
@@ -67,17 +66,17 @@
             <th></th>
         </tr>
         <?php
-        foreach($load as $item){
+        foreach ($load as $item) {
             echo "<tr>";
-                echo "<td>".$item->nome."</td>";
-                echo "<td>".$item->raca."</td>";
-                echo "<td>".$item->idade."</td>";
-                echo "<td>".$item->porte."</td>";
-                 echo "<td><a href='petForm.php?id=$item->id'><i class='fas fa-edit'></i></a></td>";
-                echo "<td><a onclick='return confirm(\"Deseja Excluir? \")' href='petList.php?id=$item->id'><i style='color:red' class='fas fa-trash'></i></a></td>";
+            echo "<td>" . $item->nome . "</td>";
+            echo "<td>" . $item->raca . "</td>";
+            echo "<td>" . $item->idade . "</td>";
+            echo "<td>" . $item->porte . "</td>";
+            echo "<td><a href='petForm.php?id=$item->id'><i class='fas fa-edit'></i></a></td>";
+            echo "<td><a onclick='return confirm(\"Deseja Excluir? \")' href='petList.php?id=$item->id'><i style='color:red' class='fas fa-trash'></i></a></td>";
             echo "<tr>";
         }
-    ?>
+        ?>
     </table>
 </div>
 <?php

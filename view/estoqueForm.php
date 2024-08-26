@@ -1,10 +1,11 @@
 <?php
 include '../controller/estoqueController.php';
 include "base/header.php";
-//session_start();    
+// session_start();
 Util::verificarLogin();
 
 $estoque = new estoqueController();
+$msg = "";
 
 if (!empty($_POST)) {
 
@@ -22,11 +23,9 @@ if (!empty($_GET['id'])) {
     $data = $estoque->buscar($_GET['id']);
     //var_dump($data);
 }
-//passa o valor para a variavem mensagem e limpa da sessão:<!-- // /* -->
+
 if (!empty($_SESSION['msg'])) {
     $msg = $_SESSION['msg'];
-    unset($_SESSION['msg']);
-    //var_dump($msg );
 } else {
     $msg = "";
 }
@@ -42,12 +41,12 @@ if (!empty($_SESSION['msg'])) {
         <div class="container text-center">
             <div class="col align-self-center">
                 <input type="text" name="nome" class="form-control" style='width:20%' placeholder="Informe o nome"
-                    value="<?php echo (!empty($data->nome) ? $data->nome : "") ?>"><br>
+                    required value="<?php echo (!empty($data->nome) ? $data->nome : "") ?>"><br>
             </div>
 
             <div class="col align-self-center">
                 <input type="text" name="quantidade" class="form-control" style='width:20%'
-                    placeholder="Informe a quantidade"
+                    placeholder="Informe a quantidade" required
                     value="<?php echo (!empty($data->quantidade) ? $data->quantidade : "") ?>"><br>
             </div>
 
@@ -58,11 +57,11 @@ if (!empty($_SESSION['msg'])) {
             </div>
             <div class="col align-self-center">
                 <input type="text" name="cnpj" class="form-control" style='width:20%' placeholder="Informe o CNPJ"
-                    value="<?php echo (!empty($data->cnpj) ? $data->cnpj : "") ?>"><br>
+                    required value="<?php echo (!empty($data->cnpj) ? $data->cnpj : "") ?>"><br>
             </div>
             <div class="col align-self-center">
                 <input type="text" name="peso" class="form-control" style='width:20%'
-                    placeholder="Informe o peso. EX: 456.45"
+                    placeholder="Informe o peso. EX: 456.45" required
                     value="<?php echo (!empty($data->peso) ? $data->peso : "") ?>"><br>
             </div>
 

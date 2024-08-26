@@ -22,9 +22,9 @@ USE `db_aula`;
 -- Copiando estrutura para tabela db_aula.estoque
 CREATE TABLE IF NOT EXISTS `estoque` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `nome` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '0',
-  `quantidade` int NOT NULL DEFAULT '0',
-  `preco` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '0',
+  `nome` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `quantidade` int NOT NULL,
+  `preco` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
   `cnpj` int NOT NULL,
   `peso` float NOT NULL,
   PRIMARY KEY (`id`)
@@ -61,8 +61,8 @@ INSERT INTO `pedido` (`id`, `nome`, `quantidade`, `valor`, `cpf`, `data`, `obser
 -- Copiando estrutura para tabela db_aula.pet
 CREATE TABLE IF NOT EXISTS `pet` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `nome` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '0',
-  `raca` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '0',
+  `nome` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `raca` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
   `idade` int NOT NULL DEFAULT '0',
   `porte` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)

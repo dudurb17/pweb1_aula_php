@@ -8,23 +8,23 @@ $contato = new ContatoController();
 
 if (!empty($_POST)) {
 
-  if (empty($_POST['id'])) {
+    if (empty($_POST['id'])) {
 
-    $contato->salvar($_POST);
-  } else {
-    $contato->atualizar($_POST);
-  }
+        $contato->salvar($_POST);
+    } else {
+        $contato->atualizar($_POST);
+    }
 
-  header("location: " . $_SESSION['url']);
+    header("location: " . $_SESSION['url']);
 
 }
 if (!empty($_GET['id'])) {
-  $data = $contato->buscar($_GET['id']);
-  //var_dump($data);
+    $data = $contato->buscar($_GET['id']);
+    //var_dump($data);
 }
 //passa o valor para a variavem mensagem e limpa da sessão:
 
-if(!empty($_SESSION['msg'])) {
+if (!empty($_SESSION['msg'])) {
     $msg = $_SESSION['msg'];
     unset($_SESSION['msg']);
     //var_dump($msg );
@@ -42,15 +42,15 @@ if(!empty($_SESSION['msg'])) {
         <input type="hidden" name="id" value="<?php echo (!empty($data->id) ? $data->id : "") ?>" />
         <div class="container text-center">
             <div class="col align-self-center">
-                <input typ <e="text" name="nome" class="form-control" style='width:20%' placeholder="Informe o nome"
-                    value="<?php echo (!empty($data->nome) ? $data->nome : "") ?>"><br>
+                <input type="text" name="nome" class="form-control" style='width:20%' placeholder="Informe o nome"
+                    required value="<?php echo (!empty($data->nome) ? $data->nome : "") ?>"><br>
             </div>
             <div class="col align-self-center">
-                <input typ <e="text" name="email" class="form-control" style='width:20%' placeholder="Informe o email"
-                    value="<?php echo (!empty($data->email) ? $data->email : "") ?>"><br>
+                <input type="text" name="email" class="form-control" style='width:20%' placeholder="Informe o email"
+                    required value="<?php echo (!empty($data->email) ? $data->email : "") ?>"><br>
             </div>
             <div class="col align-self-center">
-                <input typ <e="text" name="telefone" class="form-control" style='width:20%'
+                <input type="text" name="telefone" class="form-control" style='width:20%' required
                     placeholder="Informe o telefone"
                     value="<?php echo (!empty($data->telefone) ? $data->telefone : "") ?>"><br>
             </div>
@@ -63,4 +63,4 @@ if(!empty($_SESSION['msg'])) {
     </form>
 
     <?php
-include "base/rodape.php";
+    include "base/rodape.php";
