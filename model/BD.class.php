@@ -6,7 +6,7 @@ class BD
     private $dbname = "db_aula";
     private $port = 3306;
     private $usuario = "root";
-    private $senha = "appOeste24";
+    private $senha = "";
     private $db_charset = "utf8";
 
 
