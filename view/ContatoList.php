@@ -7,32 +7,34 @@ $msg = "";
 
 $contato = new ContatoController();
 
+//passa o valor para a variavem mensagem e limpa da sessão:
+if (!empty($_SESSION['msg'])) {
+  $msg = $_SESSION['msg'];
+  unset($_SESSION['msg']);
+} else {
+  $msg = "";
+}
+
 if (!empty($_GET['id'])) {
-    $contato->deletar($_GET['id']);
-    header("location: ContatoList.php");
-    $_SESSION["msg"] = "Registro Deletado com sucesso!";
+  $contato->deletar($_GET['id']);
+  header("location: ContatoList.php");
+  $_SESSION["msg"] = "Registro Deletado com sucesso!";
 }
 
 if (!empty($_POST)) {
-    $load = $contato->pesquisar($_POST);
+  $load = $contato->pesquisar($_POST);
 } else {
-    $load = $contato->carregar();
+  $load = $contato->carregar();
 }
 
-//passa o valor para a variavem mensagem e limpa da sessão:
-if (!empty($_SESSION['msg'])) {
-    $msg = $_SESSION['msg'];
-} else {
 
-    $msg = "";
-}
 
 ?>
 <div class='container'>
 
   <h3>Listagem Contatos</h3>
-  <p style="color:red;">
-    <?php echo (!empty($_SESSION["msg"]) ? $_SESSION["msg"] : "") ?>
+  <p>
+    <?php echo $msg != "" ? $msg : "" ?>
   </p>
   <form action="ContatoList.php" method="post">
     <div class="container text-center">
@@ -65,16 +67,16 @@ if (!empty($_SESSION['msg'])) {
       <th></th>
     </tr>
     <?php
-        foreach ($load as $item) {
-            echo "<tr>";
-            echo "<td>" . $item->nome . "</td>";
-            echo "<td>" . $item->telefone . "</td>";
-            echo "<td>" . $item->email . "</td>";
-            echo "<td><a href='ContatoForm.php?id=$item->id'><i class='fas fa-edit'></i></a></td>";
-            echo "<td><a onclick='return confirm(\"Deseja Excluir? \")' href='ContatoList.php?id=$item->id'><i style='color:red' class='fas fa-trash'></i></a></td>";
-            echo "<tr>";
-        }
-        ?>
+    foreach ($load as $item) {
+      echo "<tr>";
+      echo "<td>" . $item->nome . "</td>";
+      echo "<td>" . $item->telefone . "</td>";
+      echo "<td>" . $item->email . "</td>";
+      echo "<td><a href='ContatoForm.php?id=$item->id'><i class='fas fa-edit'></i></a></td>";
+      echo "<td><a onclick='return confirm(\"Deseja Excluir? \")' href='ContatoList.php?id=$item->id'><i style='color:red' class='fas fa-trash'></i></a></td>";
+      echo "<tr>";
+    }
+    ?>
   </table>
 </div>
 <?php

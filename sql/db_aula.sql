@@ -38,9 +38,9 @@ INSERT INTO `estoque` (`id`, `nome`, `quantidade`, `preco`, `cnpj`, `peso`) VALU
 -- Copiando estrutura para tabela db_aula.pedido
 CREATE TABLE IF NOT EXISTS `pedido` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `nome` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '0',
-  `quantidade` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '0',
-  `valor` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '0',
+  `nome` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `quantidade` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `valor` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
   `cpf` int NOT NULL,
   `data` date NOT NULL,
   `observacao` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '',

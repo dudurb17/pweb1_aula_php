@@ -10,27 +10,27 @@ $msg = "";
 
 
 if (!empty($_POST)) {
-    $load = $estoque->pesquisar($_POST);
+  $load = $estoque->pesquisar($_POST);
 } else {
-    $load = $estoque->carregar();
+  $load = $estoque->carregar();
 }
 if (!empty($_SESSION['msg'])) {
-    $msg = $_SESSION['msg'];
-    unset($_SESSION['msg']);
+  $msg = $_SESSION['msg'];
+  unset($_SESSION['msg']);
 } else {
-    $msg = "";
+  $msg = "";
 }
 if (!empty($_GET['id'])) {
-    $estoque->deletar($_GET['id']);
-    header("location: estoqueList.php");
-    $_SESSION["msg"] = "Registro Deletado com sucesso!";
+  $estoque->deletar($_GET['id']);
+  header("location: estoqueList.php");
+  $_SESSION["msg"] = "Registro Deletado com sucesso!";
 }
 
 
 ?>
 <div class="container">
   <h3>Listagem de estoque</h3>
-  <p style="color:red;">
+  <p>
     <?php echo $msg != "" ? $msg : "" ?>
   </p>
 
@@ -71,18 +71,18 @@ if (!empty($_GET['id'])) {
       <th></th>
     </tr>
     <?php
-        foreach ($load as $item) {
-            echo "<tr>";
-            echo "<td>" . $item->nome . "</td>";
-            echo "<td>" . $item->quantidade . "</td>";
-            echo "<td>" . $item->preco . "</td>";
-            echo "<td>" . $item->cnpj . "</td>";
-            echo "<td>" . $item->peso . "</td>";
-            echo "<td><a href='estoqueForm.php?id=$item->id'><i class='fas fa-edit'></i></a></td>";
-            echo "<td><a onclick='return confirm(\"Deseja Excluir? \")' href='estoqueList.php?id=$item->id'><i style='color:red' class='fas fa-trash'></i></a></td>";
-            echo "<tr>";
-        }
-        ?>
+    foreach ($load as $item) {
+      echo "<tr>";
+      echo "<td>" . $item->nome . "</td>";
+      echo "<td>" . $item->quantidade . "</td>";
+      echo "<td>" . $item->preco . "</td>";
+      echo "<td>" . $item->cnpj . "</td>";
+      echo "<td>" . $item->peso . "</td>";
+      echo "<td><a href='estoqueForm.php?id=$item->id'><i class='fas fa-edit'></i></a></td>";
+      echo "<td><a onclick='return confirm(\"Deseja Excluir? \")' href='estoqueList.php?id=$item->id'><i style='color:red' class='fas fa-trash'></i></a></td>";
+      echo "<tr>";
+    }
+    ?>
   </table>
 </div>
 <?php

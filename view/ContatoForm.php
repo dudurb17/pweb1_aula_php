@@ -26,7 +26,6 @@ if (!empty($_GET['id'])) {
 
 if (!empty($_SESSION['msg'])) {
     $msg = $_SESSION['msg'];
-    unset($_SESSION['msg']);
     //var_dump($msg );
 } else {
     $msg = "";
@@ -36,7 +35,7 @@ if (!empty($_SESSION['msg'])) {
 <div class="container">
     <form action="ContatoForm.php" method="post">
         <h3>Formulário Contato</h3>
-        <p style="color:red;">
+        <p style="color:orange;">
             <?php echo (!empty($_SESSION["msg"]) ? $_SESSION["msg"] : "") ?>
         </p>
         <input type="hidden" name="id" value="<?php echo (!empty($data->id) ? $data->id : "") ?>" />

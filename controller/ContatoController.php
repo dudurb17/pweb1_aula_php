@@ -76,6 +76,7 @@ class ContatoController
     {
 
         $this->model->deletar($this->table, $id);
+        $_SESSION["msg"] = "Registro Deletado com sucesso!";
     }
     public function buscar($id)
     {
