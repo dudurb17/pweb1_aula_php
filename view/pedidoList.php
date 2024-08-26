@@ -33,7 +33,7 @@ if (!empty($_POST)) {
 ?>
 <div class="container">
   <h3>Listagem Pedidos</h3>
-  <p style="color:orange;">
+  <p>
     <?php echo $msg != "" ? $msg : "" ?>
   </p>
   <div class="container text-center">

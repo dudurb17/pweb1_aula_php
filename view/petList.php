@@ -28,7 +28,7 @@ if (!empty($_SESSION['msg'])) {
 ?>
 <div class="container">
     <h3>Listagem de pet</h3>
-    <p style="color:red;">
+    <p>
         <?php echo $msg != "" ? $msg : "" ?>
     </p>
 
